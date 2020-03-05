@@ -1,0 +1,14 @@
+<h1>Locations</h1>
+<div>
+<% @locations.each do |location| %>
+    <h3><%= location.name %></h3><br>
+    Phone Nuber: <%= location.phone_number %><br>
+    Address:<br>
+    <%= location.address_line_1 %><br>
+    <%= location.city %>, <%= location.state %> <%= location.zipcode %><br>
+    <%= form_for location, url: new_order_path, method: :get do |f| %>
+        <%=f.hidden_field :id  %>
+        <%=f.submit 'select' %>
+    <% end %>
+<% end %>
+</div>

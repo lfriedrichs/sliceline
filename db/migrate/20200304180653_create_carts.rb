@@ -4,7 +4,6 @@ class CreateCarts < ActiveRecord::Migration[6.0]
       t.integer :order_id
       t.integer :item_id
       t.integer :quantity
-      t.float :item_price
     end
   end
 end

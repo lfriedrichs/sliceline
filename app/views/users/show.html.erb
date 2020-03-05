@@ -1,7 +1,7 @@
 <h1><%= "Welcome #{@user.first_name}!" %></h1>
 <p><%= @user.first_name %></p>
 
-<%= button_to "Create Order", '/orders/new', method: :get %>
+<%= button_to "Start a New Order", locations_path, method: :get %>
 <%= button_to "View Orders", "/users/#{@user.id}/orders", method: :get %>
 <%= button_to "Edit User Profile", edit_user_path, method: :get %>
 <%= button_to "Delete User Account", user_path, method: :delete %>

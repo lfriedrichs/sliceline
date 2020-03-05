@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   delete '/logout/:id', to: 'sessions#destroy'
   delete '/users/:id', to: 'users#destroy'
   get '/users/:id/orders', to: 'users#orders'
-  resources :orders, only: [:show, :edit, :new]
+  post '/sessions/:user_id/:item_id', to: 'sessions#add'
+  delete '/sessions/:user_id/:item_id', to: 'sessions#remove'
+  get '/sessions/:user_id/cart', to: 'sessions#cart'
+  resources :orders, only: [:show, :new, :create]
   resources :users, only: [:edit, :show, :update, :new, :create] 
+  resources :locations, only: :index
 
 
 

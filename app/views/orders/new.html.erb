@@ -1,2 +1,33 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<h1>Menu</h1>
+<h3><%= form_for @location, url:new_order_path, method: :get do |f| %>
+      <%= f.collection_select :id, Location.all, :id, :name %>
+      <%= f.submit "change location", method: :get %>
+  <% end %></h3><br>
+You have selected <%= @location.name %><br>
+<% @location.items.each do |item|%>
+    <%= item.name %><br>
+    <%= item.description %><br>
+    $<%= item.price %><br>
+    <%= button_to "add to cart", "/sessions/#{session[:user_id]}/#{item.id}" %>
+<% end %>
+
+
+<% if session[@user_id] %>
+    <%= "Items in your cart:" %><br>
+    <% session[@user_id]["cart"].each do |item_id, quantity| %>
+        <%= pluralize(quantity, Item.find_by_id(item_id).name) %><br>
+    <% end %>
+    Total $<%= session[@user_id]["total"] %>
+    <%= button_to "checkout", "/sessions/#{@user_id}/cart", method: :get %>
+<% else %>
+    <%= "Your cart is empty" %>
+<% end %>
+
+<% if flash[:message] %>
+    <%= flash[:message] %>
+<% end %>
+
+
+
+
+
