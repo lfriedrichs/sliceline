@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def orders
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(params[:id].to_i)
     @orders = @user.orders
   end
 

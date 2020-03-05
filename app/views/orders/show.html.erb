@@ -1,2 +1,18 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<h1>Order Number: <%= @order.order_number %></h1>
+
+<h3>Order Status: <%= @order.status %></h3>
+<div>
+    <% @order.carts.each do |cart| %>
+        <% name = cart.item.name %>
+        <% quantity = cart.quantity %>
+        <% price = quantity * cart.item.price %>
+        <%= "#{pluralize(quantity, name)} $#{price.round(2)}" %><br>
+    <% end %>
+    $<%= @order.total_price.round(2) %>
+</div>
+<% if @order.status == "received" %>
+    <%= button_to "cancel order", "/orders/#{@order.id}", method: :patch %>
+<% end %>
+
+<%= button_to "return to order history", "/users/#{@order.user_id}/orders", method: :get %>
+<%= button_to "place a new order", "/orders/new", method: :get %>

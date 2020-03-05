@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/sessions/:user_id/:item_id', to: 'sessions#add'
   delete '/sessions/:user_id/:item_id', to: 'sessions#remove'
   get '/sessions/:user_id/cart', to: 'sessions#cart'
-  resources :orders, only: [:show, :new, :create]
+  resources :orders, only: [:show, :new, :create, :update]
   resources :users, only: [:edit, :show, :update, :new, :create] 
   resources :locations, only: :index
 

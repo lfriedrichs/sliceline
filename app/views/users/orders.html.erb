@@ -1,9 +1,10 @@
 <h1>Your Orders</h1>
 <div>
 <% @orders.each do |order| %>
-    <h3><%= link_to order.order_number, order %></h3>
-    <% order.cart.each do |cart| %>
+    <h3><%= link_to order.order_number, "/orders/#{order.order_number}" %></h3>
+    <% order.carts.each do |cart| %>
         <p><%= cart.quantity %> <%= cart.item.name %></p>
     <% end %>
+    Total: $<%= order.total_price %><br>
 <% end %>
 </div>

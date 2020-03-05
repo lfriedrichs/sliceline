@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.integer :order_number
       t.integer :location_id
       t.string :status
-      t.integer :total_price
+      t.float :total_price
       t.timestamps
     end
   end
