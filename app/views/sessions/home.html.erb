@@ -2,7 +2,11 @@
 <h4>THE BEST WAY TO ORDER FOOD</h4>
 
 <%= button_to "Login", '/login', method: :get %>
-<%= button_to "Create an User", '/new_user', method: :get %>
+<%= button_to "Create an User", '/users/new', method: :get %>
+
+<% if flash[:message] %>
+    <p><%= flash[:message] %></p>
+<% end %>
 
 
 

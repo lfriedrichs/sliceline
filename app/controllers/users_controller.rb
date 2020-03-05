@@ -4,7 +4,12 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
   end
 
+  def edit
+    @user = User.find_by_id(params[:id])
+  end
+
   def new
+    @user = User.new
   end
 
   def create
@@ -12,16 +17,15 @@ class UsersController < ApplicationController
     redirect_to "/users/#{@user.id}"
   end
 
-  def edit
+  def update
     @user = User.find_by_id(params[:id])
-
+    @user.update(user_params)
+    redirect_to "/users/#{@user.id}"
   end
 
   def destroy
-    if session[params[:id]] == params[:id]
       User.find_by_id(params[:id]).destroy
-      flash[:delete] = "You have successfully deleted your account"
-    end
+      flash[:message] = "You have successfully deleted your account"
     redirect_to '/'
   end
 

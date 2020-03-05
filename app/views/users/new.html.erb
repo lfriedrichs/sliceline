@@ -1,28 +1,2 @@
 <h1>Create User</h1>
-<%=form_for 'user' do |f| %>
-    <%=f.label 'First Name' %>
-    <%=f.text_field :first_name %><br>
-    <%=f.label 'Last Name' %>
-    <%=f.text_field :last_name %><br>
-    <%=f.label :Username %>
-    <%=f.text_field :user_name %><br>
-    <%=f.label :Password %>
-    <%=f.password_field :password %><br>
-    <%=f.label "Confirm Password" %>
-    <%=f.password_field :password_confirmation %><br>
-    <%=f.label :Email %>
-    <%=f.text_field :email %><br>
-    <%=f.label 'Phone Number' %>
-    <%=f.number_field :phone_number %><br>
-    <%=f.label :Address %>
-    <%=f.text_field :address_line_1 %><br>
-    <%=f.text_field :address_line_2 %><br>
-    <%=f.label :City %>
-    <%=f.text_field :city %><br>
-    <%=f.label :state %>
-    <%=f.text_field :state %><br>
-    <%=f.label :zipcode %>
-    <%=f.number_field :zipcode %><br>
-    <%=f.submit "register user" %>
-<% end %>
-    
+<%= render 'form' %>    

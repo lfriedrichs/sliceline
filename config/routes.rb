@@ -3,12 +3,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout/:id', to: 'sessions#destroy'
-  get '/new_user', to: 'users#new'
-  post '/new_user', to: 'users#create'
   post '/users/:id/destroy', to: 'users#destroy'
-  post '/users/:id/orders', to: 'users#orders'
+  get '/users/:id/orders', to: 'users#orders'
   resources :orders, only: [:show, :edit, :new]
-  resources :users, only: [:show, :edit] 
+  resources :users, only: [:edit, :show, :update, :new, :create] 
 
 
 
