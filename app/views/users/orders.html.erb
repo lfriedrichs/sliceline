@@ -1,6 +1,9 @@
 <h1>Your Orders</h1>
 <div>
 <% @orders.each do |order| %>
-
-<p>Find me in app/views/users/orders.html.erb</p>
+    <h3><%= link_to order.order_number, order %></h3>
+    <% order.cart.each do |cart| %>
+        <p><%= cart.quantity %> <%= cart.item.name %></p>
+    <% end %>
+<% end %>
 </div>

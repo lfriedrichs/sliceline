@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get '/', to: 'sessions#home'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  post '/logout/:id', to: 'sessions#destroy'
-  post '/users/:id/destroy', to: 'users#destroy'
+  delete '/logout/:id', to: 'sessions#destroy'
+  delete '/users/:id', to: 'users#destroy'
   get '/users/:id/orders', to: 'users#orders'
   resources :orders, only: [:show, :edit, :new]
   resources :users, only: [:edit, :show, :update, :new, :create] 

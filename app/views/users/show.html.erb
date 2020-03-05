@@ -3,7 +3,7 @@
 
 <%= button_to "Create Order", '/orders/new', method: :get %>
 <%= button_to "View Orders", "/users/#{@user.id}/orders", method: :get %>
-<%= button_to "Edit User Profile", "/users/#{@user.id}/edit", method: :get %>
-<%= button_to "Delete User Account", "/users/#{@user.id}/destroy" %>
-<%= button_to "Logout", "/logout/#{@user.id}" %>
+<%= button_to "Edit User Profile", edit_user_path, method: :get %>
+<%= button_to "Delete User Account", user_path, method: :delete %>
+<%= button_to "Logout", "/logout/#{@user.id}", method: :delete %>
 
