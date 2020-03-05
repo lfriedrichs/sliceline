@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= "Welcome #{@user.first_name}!" %></h1>
+<p><%= @user.first_name %></p>
+
+<%= button_to "Create Order", '/orders/new', method: :get %>
+<%= button_to "View Orders", '/users/:id/orders', method: :get %>
+<%= button_to "Edit User Profile", '/users/edit', method: :get %>
+<%= button_to "View Orders", '/users/:id/orders', method: :get %>
+<%= button_to "Delete User Account", '/users/destroy' %>
+<%= button_to "Logout", "/logout/#{@user.id}" %>
+

@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_181150) do
     t.integer "user_id"
     t.integer "order_number"
     t.integer "location_id"
+    t.string "status"
     t.string "type"
     t.integer "sub_total_price"
     t.integer "tax"
@@ -72,8 +73,10 @@ ActiveRecord::Schema.define(version: 2020_03_04_181150) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "user_name"
     t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
     t.string "email"
     t.integer "phone_number"
     t.string "address_line_1"
