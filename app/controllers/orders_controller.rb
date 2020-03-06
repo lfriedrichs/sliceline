@@ -1,11 +1,11 @@
 
 class OrdersController < ApplicationController
   def new
-    @user_id = session[:user_id]
+    @user = User.find_by_id(session[:user_id])
     if params[:location]
       if params[:location][:id] != session[:location_id]
         session[:location_id] = params[:location][:id]
-        session.delete @user_id 
+        session.delete @user.id
       end
     end
     @location = Location.find_by_id(session[:location_id])
@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @user = User.find_by_id(session[:user_id])
     @order = Order.find_by(order_number: params[:id])
     if session[:user_id] != @order.user_id
       flash[:message] = "You do not have access to this order"

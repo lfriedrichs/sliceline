@@ -1,3 +1,5 @@
 <div class="edit_user_page"><h1>Edit User Profile</h1>
+<div id="home_button"><%= button_to "account home", @user, method: :get %></div>
+
 <%= render 'form' %>
 <%= button_to "cancel", @user, method: :get, id:"cancel" %></div>

@@ -1,4 +1,6 @@
 <h1><%= @location.name %>'s Menu</h1>
+<div id="home_button"><%= button_to "account home", @user, method: :get %></div>
+
 <h3>Select another location: <%= form_for @location, url:new_order_path, method: :get do |f| %>
       <%= f.collection_select :id, Location.all, :id, :name %>
       <%= f.submit "change location", method: :get %>
@@ -13,13 +15,13 @@
 <% end %></div>
 
 
-<div><div class="cart"><% if session[@user_id] %>
+<div><div class="cart"><% if session[@user.id] %>
     <%= "Items in your cart:" %><br>
-    <% session[@user_id]["cart"].each do |item_id, quantity| %>
+    <% session[@user.id]["cart"].each do |item_id, quantity| %>
         <%= pluralize(quantity, Item.find_by_id(item_id).name) %><br>
     <% end %>
-    Total $<%= session[@user_id]["total"] %>
-    <%= button_to "checkout", "/sessions/#{@user_id}/cart", method: :get %>
+    Total $<%= session[@user.id]["total"] %>
+    <%= button_to "checkout", "/sessions/#{@user.id}/cart", method: :get %>
 <% else %>
     <%= "Your cart is empty" %>
 <% end %></div></div></div>

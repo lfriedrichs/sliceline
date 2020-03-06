@@ -21218,3 +21218,2196 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 7128)
 
 
+Started GET "/login" for ::1 at 2020-03-06 12:10:20 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1231)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 32.0ms | ActiveRecord: 0.0ms | Allocations: 5784)
+
+
+Started POST "/login" for ::1 at 2020-03-06 12:10:27 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"mU0y3VXvcYbw1XTLiR5iUX4qJm2Oz/6KT5SxLNjz1kbQl7Z3UMFKEGO2geHWeXQvZxq/j12GvMUFTdXTZlihMA==", "user"=>{"user_name"=>"lfriedrichs", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "lfriedrichs"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:53:in `create'
+Redirected to http://localhost:3000/users/15
+Completed 302 Found in 319ms (ActiveRecord: 0.4ms | Allocations: 1084)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:10:28 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 667)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.2ms | Allocations: 5820)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:10:31 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (2.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  Rendered users/orders.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1584)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 16.3ms | ActiveRecord: 3.0ms | Allocations: 8527)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:10:33 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 473)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.9ms | ActiveRecord: 0.4ms | Allocations: 5295)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:10:34 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (2.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:3
+  Rendered locations/index.html.erb within layouts/application (Duration: 17.7ms | Allocations: 6145)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 24.0ms | ActiveRecord: 3.6ms | Allocations: 13144)
+
+
+Started GET "/orders/new?location%5Bid%5D=2&commit=select+location" for ::1 at 2020-03-06 12:10:36 -0800
+Processing by OrdersController#new as HTML
+  Parameters: {"location"=>{"id"=>"2"}, "commit"=>"select location"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (3.0ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  Rendered orders/new.html.erb within layouts/application (Duration: 32.2ms | Allocations: 10777)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 37.6ms | ActiveRecord: 4.2ms | Allocations: 16278)
+
+
+Started POST "/sessions/15/44" for ::1 at 2020-03-06 12:10:38 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"uTFPF9oLCTMV0JKd0F+L77Lj4xMJp3tuh5dBK9jrOtDw68u93yUypYazZ7ePOJ2Rq9N68druOSHNTiXUZkBNpg==", "user_id"=>"15", "item_id"=>"44"}
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms | Allocations: 1018)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:10:38 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  Rendered orders/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 3722)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.6ms | Allocations: 8558)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:10:39 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1051)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 18.9ms | ActiveRecord: 0.6ms | Allocations: 6030)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:12:17 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1053)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 27.1ms | ActiveRecord: 0.3ms | Allocations: 6819)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:13:14 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1054)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 43.1ms | ActiveRecord: 0.5ms | Allocations: 6821)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:15:08 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1055)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 101ms (Views: 96.4ms | ActiveRecord: 0.4ms | Allocations: 19702)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:15:33 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 2.6ms | Allocations: 807)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 66.9ms | ActiveRecord: 0.3ms | Allocations: 19831)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:16:46 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1062)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 29.6ms | ActiveRecord: 0.5ms | Allocations: 6833)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:17:24 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 1.9ms | Allocations: 807)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 80.4ms | ActiveRecord: 0.3ms | Allocations: 19316)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:19:41 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 6.1ms | Allocations: 803)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 105ms (Views: 88.8ms | ActiveRecord: 1.3ms | Allocations: 20240)
+
+
+Started DELETE "/sessions/15/44" for ::1 at 2020-03-06 12:19:58 -0800
+Processing by SessionsController#remove as HTML
+  Parameters: {"authenticity_token"=>"JeWNeWFnZ1op45CzK519rzZ5Xn6EgTrhGpw/nu6OSRBsPwnTZElczLqAZZl0+mvRL0nHnFfIeK5QRVthUCU+Zg==", "user_id"=>"15", "item_id"=>"44"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `remove'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 850)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:19:58 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  Rendered orders/new.html.erb within layouts/application (Duration: 22.2ms | Allocations: 3635)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 37.2ms | ActiveRecord: 0.8ms | Allocations: 9040)
+
+
+Started POST "/sessions/15/44" for ::1 at 2020-03-06 12:19:59 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"hXxUuPLSu/FkNlRB3T4bEWSiEsv0Y55KoiqILK1bQTrMptAS9/yAZ/dVoWuCWQ1vfZKLKScq3AXo8+zTE/A2TA==", "user_id"=>"15", "item_id"=>"44"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 846)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:19:59 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  Rendered orders/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3722)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.7ms | Allocations: 8558)
+
+
+Started POST "/sessions/15/44" for ::1 at 2020-03-06 12:20:01 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"pPhtgQXukvmtKJDvME6Q0WBDBWwzYfuYS5AxT3Oq+lrtIukrAMCpbz5LZcVvKYaveXOcjuAoudcBSVWwzQGNLA==", "user_id"=>"15", "item_id"=>"44"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 848)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:20:01 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  Rendered orders/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3729)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.7ms | Allocations: 8561)
+
+
+Started POST "/sessions/15/42" for ::1 at 2020-03-06 12:20:02 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"6htOD/nW3nUpzvjRkoc69MyDzM9vQbw1oy+zzEk1Snyjwcql/Pjl47qtDfvN4CyK1bNVLbwI/nrp9tcz9549Cg==", "user_id"=>"15", "item_id"=>"42"}
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 845)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:20:02 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  Rendered orders/new.html.erb within layouts/application (Duration: 13.6ms | Allocations: 4275)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 1.0ms | Allocations: 9113)
+
+
+Started POST "/sessions/15/11" for ::1 at 2020-03-06 12:20:03 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"1D/HXSnuVdoBIw+bzrzZGqxF7782/myD3LGYxc+7HkSd5UP3LMBuTJJA+rGR289ktXV2XeW3LsyWaPw6cRBpMg==", "user_id"=>"15", "item_id"=>"11"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms | Allocations: 863)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:20:03 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:19
+  Rendered orders/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 4821)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 1.0ms | Allocations: 9663)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:20:04 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2160)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 0.7ms | Allocations: 7003)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:22:51 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:4
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2154)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 61.6ms | ActiveRecord: 1.2ms | Allocations: 21136)
+
+
+Started POST "/orders" for ::1 at 2020-03-06 12:22:58 -0800
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"iMD6Z+Ix+D/Y52ReKQGxA6Z7j30K1yhld49hGGyOc8jBGn7N5x/DqUuEkXR2Zqd9v0sWn9meaio9VgXn0iUEvg=="}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[36mOrder Create (2.9ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "order_number", "location_id", "status", "total_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 15], ["order_number", "20200306122258080015"], ["location_id", 2], ["status", "received"], ["total_price", 263.63], ["created_at", "2020-03-06 20:22:58.288066"], ["updated_at", "2020-03-06 20:22:58.288066"]]
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mCart Create (5.0ms)[0m  [1m[32mINSERT INTO "carts" ("order_id", "item_id", "quantity") VALUES (?, ?, ?)[0m  [["order_id", 7], ["item_id", 44], ["quantity", 2]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mCart Create (0.7ms)[0m  [1m[32mINSERT INTO "carts" ("order_id", "item_id", "quantity") VALUES (?, ?, ?)[0m  [["order_id", 7], ["item_id", 42], ["quantity", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("order_id", "item_id", "quantity") VALUES (?, ?, ?)[0m  [["order_id", 7], ["item_id", 11], ["quantity", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+Redirected to http://localhost:3000/orders/20200306122258080015
+Completed 302 Found in 97ms (ActiveRecord: 25.2ms | Allocations: 28899)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:22:58 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  Rendered orders/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 4051)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 1.2ms | Allocations: 9046)
+
+
+Started POST "/orders" for ::1 at 2020-03-06 12:23:02 -0800
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"iMD6Z+Ix+D/Y52ReKQGxA6Z7j30K1yhld49hGGyOc8jBGn7N5x/DqUuEkXR2Zqd9v0sWn9meaio9VgXn0iUEvg=="}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1004)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:35:in `create'
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:23:09 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1253)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 2216)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    1: <div class="user_cart_page"><h1><%= @user.first_name %>'s Cart</h1>
+    2: 
+    3: <div class="cart_items"><% session[@user.id]["cart"].each do |item_id, quantity| %>
+    4:         <div class="item"><div><% item = Item.find_by_id(item_id) %></div>
+    5:         <div><% price = quantity * item.price %></div>
+    6:         <div class="item_info"><%= pluralize(quantity, item.name) %> $<%= price.round(2) %></div>
+  
+app/views/sessions/cart.html.erb:3
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:23:36 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 32.6ms | Allocations: 3775)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 43.8ms | ActiveRecord: 1.1ms | Allocations: 9194)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:23:39 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  Rendered orders/show.html.erb within layouts/application (Duration: 9.1ms | Allocations: 2975)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 1.0ms | Allocations: 7788)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:25:21 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:5
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  Rendered orders/show.html.erb within layouts/application (Duration: 11.6ms | Allocations: 3312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 71.6ms | ActiveRecord: 1.3ms | Allocations: 22811)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:26:23 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  Rendered orders/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2973)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 92ms (Views: 88.7ms | ActiveRecord: 0.9ms | Allocations: 21325)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:26:47 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:7
+  Rendered orders/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 3306)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 1.6ms | Allocations: 9054)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:26:48 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 11.7ms | Allocations: 3773)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 1.1ms | Allocations: 9192)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:26:50 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 665)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 13.2ms | ActiveRecord: 0.3ms | Allocations: 5632)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:26:52 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:3
+  Rendered locations/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1838)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 0.2ms | Allocations: 6721)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:27:05 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:46:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3505)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 39.9ms | ActiveRecord: 1.2ms | Allocations: 8357)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:27:26 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 670)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.2ms | Allocations: 6432)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:27:28 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1973)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.4ms | Allocations: 6865)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:28:27 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1654)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 70.3ms | ActiveRecord: 0.2ms | Allocations: 18589)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:28:47 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1654)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 63.7ms | ActiveRecord: 0.2ms | Allocations: 18594)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:29:03 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1654)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.2ms | Allocations: 6008)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:29:54 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1971)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 71.1ms | ActiveRecord: 0.2ms | Allocations: 19856)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:30:07 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 1663)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 143ms (Views: 140.2ms | ActiveRecord: 0.2ms | Allocations: 20716)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:30:13 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1654)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.2ms | Allocations: 19414)
+
+
+Started GET "/orders/new?location%5Bid%5D=2&commit=select+location" for ::1 at 2020-03-06 12:30:17 -0800
+Processing by OrdersController#new as HTML
+  Parameters: {"location"=>{"id"=>"2"}, "commit"=>"select location"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:3
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:6
+  Rendered orders/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 3640)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 20.7ms | ActiveRecord: 0.6ms | Allocations: 9063)
+
+
+Started GET "/orders/new?location%5Bid%5D=2&commit=select+location" for ::1 at 2020-03-06 12:31:35 -0800
+Processing by OrdersController#new as HTML
+  Parameters: {"location"=>{"id"=>"2"}, "commit"=>"select location"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 3771)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 88.3ms | ActiveRecord: 0.5ms | Allocations: 23895)
+
+
+Started POST "/sessions/15/44" for ::1 at 2020-03-06 12:31:38 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"N2vSHVHrgjSz26jTJ380QhTfYg/h1FJ30OXdPE9IpNR+sVa3VMW5oiC4Xfl4GCI8De/77TKdEDiaPLnD8ePTog==", "user_id"=>"15", "item_id"=>"44"}
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 850)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:31:38 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:21
+  Rendered orders/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3838)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 15.5ms | ActiveRecord: 0.7ms | Allocations: 8677)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:31:39 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:5
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1146)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.4ms | ActiveRecord: 0.4ms | Allocations: 6557)
+
+
+Started POST "/orders" for ::1 at 2020-03-06 12:31:42 -0800
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"88u90SRX6lpeGH9t5bq/ZB9EHXP08P1B3zNNT3fTBJa6ETl7IXnRzM17ike63akaBnSEkSe5vw6V6imwyXhz4A=="}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "order_number", "location_id", "status", "total_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 15], ["order_number", "20200306123142080015"], ["location_id", 2], ["status", "received"], ["total_price", 59.24], ["created_at", "2020-03-06 20:31:42.313345"], ["updated_at", "2020-03-06 20:31:42.313345"]]
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:37:in `create'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("order_id", "item_id", "quantity") VALUES (?, ?, ?)[0m  [["order_id", 8], ["item_id", 44], ["quantity", 1]]
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:41:in `block in create'
+Redirected to http://localhost:3000/orders/20200306123142080015
+Completed 302 Found in 35ms (ActiveRecord: 9.5ms | Allocations: 8585)
+
+
+Started GET "/orders/20200306123142080015" for ::1 at 2020-03-06 12:31:42 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306123142080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306123142080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2063)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.5ms | Allocations: 7024)
+
+
+Started GET "/orders/20200306123142080015" for ::1 at 2020-03-06 12:31:44 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306123142080015"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306123142080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1701)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 0.7ms | Allocations: 6514)
+
+
+Started GET "/orders/20200306123142080015" for ::1 at 2020-03-06 12:31:46 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306123142080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306123142080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1701)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.5ms | Allocations: 6512)
+
+
+Started GET "/orders/20200306123142080015" for ::1 at 2020-03-06 12:31:50 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306123142080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306123142080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1701)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 0.9ms | Allocations: 6515)
+
+
+Started GET "/orders/20200306123142080015" for ::1 at 2020-03-06 12:33:29 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306123142080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306123142080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 27.9ms | Allocations: 11109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 35.2ms | ActiveRecord: 2.8ms | Allocations: 22982)
+
+
+Started GET "/orders/20200306123142080015" for ::1 at 2020-03-06 12:33:31 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306123142080015"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306123142080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1701)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 1.0ms | Allocations: 6520)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:33:36 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 6379)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 19.3ms | ActiveRecord: 1.8ms | Allocations: 17619)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:33:37 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3230)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 16.9ms | ActiveRecord: 1.0ms | Allocations: 8052)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:35:25 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 27.1ms | Allocations: 11416)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 55.5ms | ActiveRecord: 2.3ms | Allocations: 23908)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:35:26 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 3232)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.6ms | Allocations: 8069)
+
+
+Started POST "/sessions/15/44" for ::1 at 2020-03-06 12:35:34 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"NoJUWq7uqyRiL6Gn93DFNH6ixxEK8vryoS/BQaJ49/x/WNDwq8CQsvFMVI2oF9NKZ5Je89m7uL3r9qW+HNOAig==", "user_id"=>"15", "item_id"=>"44"}
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms | Allocations: 5460)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:35:34 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 2]]
+  ↳ app/views/orders/new.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:21
+  Rendered orders/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 7444)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 24.4ms | ActiveRecord: 2.3ms | Allocations: 18847)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:35:35 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:5
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1200)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 20.3ms | ActiveRecord: 1.5ms | Allocations: 15431)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:35:37 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 664)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8196ms (Views: 14.7ms | ActiveRecord: 0.2ms | Allocations: 43434)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:35:52 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 56.4ms | Allocations: 19663)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 61.7ms | ActiveRecord: 5.7ms | Allocations: 35903)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:35:54 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 474)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.3ms | Allocations: 5302)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:35:55 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 14.0ms | Allocations: 4833)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 23.6ms | ActiveRecord: 1.4ms | Allocations: 9682)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:35:56 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3917)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 0.9ms | Allocations: 9116)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:35:57 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 8.6ms | Allocations: 3098)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 17.2ms | ActiveRecord: 1.1ms | Allocations: 7924)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:36:00 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3098)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 18.9ms | ActiveRecord: 1.1ms | Allocations: 7921)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:36:07 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 31.1ms | Allocations: 12533)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 64ms (Views: 39.1ms | ActiveRecord: 3.0ms | Allocations: 24340)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:36:11 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 8.6ms | Allocations: 3098)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 42.2ms | ActiveRecord: 0.9ms | Allocations: 7925)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:37:03 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3453)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 38.1ms | ActiveRecord: 0.8ms | Allocations: 9215)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:37:05 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3098)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.9ms | Allocations: 7923)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:37:07 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:51:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 14.8ms | Allocations: 5897)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 21.4ms | ActiveRecord: 2.2ms | Allocations: 20450)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:37:09 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:51:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 13.0ms | Allocations: 4826)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.4ms | ActiveRecord: 1.3ms | Allocations: 9678)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:37:10 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 666)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 5625)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:37:11 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:51:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 13.1ms | Allocations: 4828)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 21.1ms | ActiveRecord: 1.3ms | Allocations: 9677)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:37:11 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 13.5ms | Allocations: 3100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 2.0ms | Allocations: 7927)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:37:13 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3091)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.9ms | Allocations: 7917)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:37:26 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 27.4ms | Allocations: 12535)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 34.0ms | ActiveRecord: 2.7ms | Allocations: 24385)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:37:29 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 10.1ms | Allocations: 3091)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 1.1ms | Allocations: 7919)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:37:50 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:25:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 28.9ms | Allocations: 12467)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49355ms (Views: 60.5ms | ActiveRecord: 2.9ms | Allocations: 70950)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:38:42 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (1.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 41.7ms | Allocations: 12040)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 50.1ms | ActiveRecord: 6.7ms | Allocations: 33202)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:38:43 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 482)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14753ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 42571)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:39:10 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 58.5ms | Allocations: 19383)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 105ms (Views: 66.5ms | ActiveRecord: 6.7ms | Allocations: 35484)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:39:11 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 474)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 13.3ms | ActiveRecord: 0.4ms | Allocations: 5309)
+
+
+Started GET "/users/15/orders" for ::1 at 2020-03-06 12:39:12 -0800
+Processing by UsersController#orders as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `orders'
+  Rendering users/orders.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = ?[0m  [["user_id", 15]]
+  ↳ app/views/users/orders.html.erb:4
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/users/orders.html.erb:6
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/users/orders.html.erb:7
+  Rendered users/orders.html.erb within layouts/application (Duration: 14.0ms | Allocations: 4826)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 24.8ms | ActiveRecord: 1.5ms | Allocations: 9674)
+
+
+Started GET "/orders/20200306122258080015" for ::1 at 2020-03-06 12:39:13 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306122258080015"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306122258080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 11.5ms | Allocations: 3054)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 20.9ms | ActiveRecord: 1.3ms | Allocations: 8631)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:39:14 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 471)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 9.0ms | ActiveRecord: 0.4ms | Allocations: 5302)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:39:16 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  Rendered locations/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1942)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 5113)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for 15:Integer
+Did you mean?  to_yaml):
+    1: <div class="locations_page"><h1>Locations</h1>
+    2: <div id="home_button"><%= button_to "account home", @user, method: :get, id:"button" %></div>
+    3: 
+    4: <div class="locations">
+    5: <% @locations.each do |location| %>
+  
+app/views/locations/index.html.erb:2
+Started GET "/locations" for ::1 at 2020-03-06 12:39:50 -0800
+Processing by LocationsController#index as HTML
+  Rendering locations/index.html.erb within layouts/application
+  Rendered locations/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1666)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2121)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for 15:Integer
+Did you mean?  to_yaml):
+    1: <div class="locations_page"><h1>Locations</h1>
+    2: <div id="home_button"><%= button_to "account home", @user, method: :get, id:"button" %></div>
+    3: 
+    4: <div class="locations">
+    5: <% @locations.each do |location| %>
+  
+app/views/locations/index.html.erb:2
+Started GET "/locations" for ::1 at 2020-03-06 12:41:37 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 6245)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 97ms (Views: 37.8ms | ActiveRecord: 1.7ms | Allocations: 23327)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:41:39 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 668)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 0.2ms | Allocations: 6083)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:41:40 -0800
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1615)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 6448)
+
+
+Started GET "/orders/new?location%5Bid%5D=3&commit=select+location" for ::1 at 2020-03-06 12:41:41 -0800
+Processing by OrdersController#new as HTML
+  Parameters: {"location"=>{"id"=>"3"}, "commit"=>"select location"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 30.0ms | Allocations: 10895)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 38.0ms | ActiveRecord: 1.9ms | Allocations: 16929)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:41:42 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 479)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 5305)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:41:43 -0800
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1615)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 0.4ms | Allocations: 6442)
+
+
+Started GET "/orders/new?location%5Bid%5D=3&commit=select+location" for ::1 at 2020-03-06 12:41:45 -0800
+Processing by OrdersController#new as HTML
+  Parameters: {"location"=>{"id"=>"3"}, "commit"=>"select location"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 1.1ms | Allocations: 8545)
+
+
+Started POST "/sessions/15/45" for ::1 at 2020-03-06 12:41:46 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"EYL/At09pdOkenBbNHFG/hnXoEDnotawbpX9XtJnwuNYWHuo2BOeRTcZhXFrFlCAAOc5ojTrlP8kTJmhbMy1lQ==", "user_id"=>"15", "item_id"=>"45"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 1018)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:41:46 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.7ms | Allocations: 8530)
+
+
+Started POST "/sessions/15/45" for ::1 at 2020-03-06 12:41:48 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"KXg1cJUKP6XxwSUpsRwtv3DVYoGNj7KRaZ1Cw8w76RVgorHakCQEM2Ki0APuezvBaeX7Y17G8N4jRCY8cpCeYw==", "user_id"=>"15", "item_id"=>"45"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 843)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:41:48 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 3185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.8ms | Allocations: 8529)
+
+
+Started POST "/sessions/15/35" for ::1 at 2020-03-06 12:41:50 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"1upthUbw9u0YzjQaZJcuZRq58DC939kgRsSU9fgTUtefMOkvQ97Ne4utwTA78DgbA4lp0m6Wm28MHfAKRrgloQ==", "user_id"=>"15", "item_id"=>"35"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 852)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:41:50 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.6ms | Allocations: 8537)
+
+
+Started GET "/orders/new?location%5Bid%5D=4&commit=change+location" for ::1 at 2020-03-06 12:41:54 -0800
+Processing by OrdersController#new as HTML
+  Parameters: {"location"=>{"id"=>"4"}, "commit"=>"change location"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 4]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 3184)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 0.8ms | Allocations: 8560)
+
+
+Started POST "/sessions/15/35" for ::1 at 2020-03-06 12:41:56 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"qquVEHDpYmtzKUVA77EQgw1/v5x4o4m5pNhRwPFOgWjjcRG6dcdZ/eBKsGqw1gb9FE8mfqvqy/buATU/T+X2Hg==", "user_id"=>"15", "item_id"=>"35"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 849)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:41:56 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 4]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 3185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.7ms | ActiveRecord: 1.5ms | Allocations: 8528)
+
+
+Started POST "/sessions/15/35" for ::1 at 2020-03-06 12:42:12 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"7BL2QjF8gBIx/OYyqaM5yFaMPDl9XJI0nVHapQL7+/ClyHLoNFK7hKKfExj2xC+2T7yl264V0HvXiL5avFCMhg==", "user_id"=>"15", "item_id"=>"35"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:48:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 28166ms (ActiveRecord: 1.3ms | Allocations: 44594)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:42:40 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 4]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 14.3ms | Allocations: 6399)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 26.3ms | ActiveRecord: 3.4ms | Allocations: 27129)
+
+
+Started POST "/sessions/15/35" for ::1 at 2020-03-06 12:42:42 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"guNs9+XLTDvAhWIdS2oIQ82JDZcrzb2W4sLQpMdoICXLOehd4OV3rVPmlzcUDR491LmUdfiE/9moG7RbecNXUw==", "user_id"=>"15", "item_id"=>"35"}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 55701ms (ActiveRecord: 1.5ms | Allocations: 43182)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:43:38 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:12:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 4]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 17.3ms | Allocations: 7631)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24746ms (Views: 35.4ms | ActiveRecord: 3.9ms | Allocations: 67038)
+
+
+Started POST "/sessions/15/35" for ::1 at 2020-03-06 12:44:12 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"WVzEAN29GS548heYI6oyppgaJePZV2N3AzbZnZUCJIYQhkCq2JMiuOuR4rJ8zSTYgSq8AQoeIThJ771iK6lT8A==", "user_id"=>"15", "item_id"=>"35"}
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 20ms (ActiveRecord: 4.3ms | Allocations: 5430)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:44:12 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:13:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 4]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 29.3ms | Allocations: 7652)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23322ms (Views: 37.5ms | ActiveRecord: 3.0ms | Allocations: 140030)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:45:27 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:12:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 4]]
+  ↳ app/views/orders/new.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:21
+  Rendered orders/new.html.erb within layouts/application (Duration: 29.9ms | Allocations: 12801)
+Completed 500 Internal Server Error in 4248ms (ActiveRecord: 4.9ms | Allocations: 67352)
+
+
+  
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+    20:     <% session[@user.id]["cart"].each do |item_id, quantity| %>
+    21:         <%= pluralize(quantity, Item.find_by_id(item_id).name) %><br>
+    22:     <% end %>
+    23:     Total $<%= session[@user_id]["total"] %>
+    24:     <%= button_to "checkout", "/sessions/#{@user.id}/cart", method: :get %>
+    25: <% else %>
+    26:     <%= "Your cart is empty" %>
+  
+app/views/orders/new.html.erb:23
+Started GET "/orders/new" for ::1 at 2020-03-06 12:45:41 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:12:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 4]]
+  ↳ app/views/orders/new.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:21
+  Rendered orders/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 4323)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4008ms (Views: 27.7ms | ActiveRecord: 1.2ms | Allocations: 47242)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:46:18 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 674)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 33.5ms | ActiveRecord: 2.2ms | Allocations: 15220)
+
+
+Started GET "/locations" for ::1 at 2020-03-06 12:46:19 -0800
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:4:in `index'
+  Rendering locations/index.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/locations/index.html.erb:5
+  Rendered locations/index.html.erb within layouts/application (Duration: 15.2ms | Allocations: 6238)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 23.6ms | ActiveRecord: 1.0ms | Allocations: 13753)
+
+
+Started GET "/orders/new?location%5Bid%5D=3&commit=select+location" for ::1 at 2020-03-06 12:46:20 -0800
+Processing by OrdersController#new as HTML
+  Parameters: {"location"=>{"id"=>"3"}, "commit"=>"select location"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 26.9ms | Allocations: 10367)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 34.6ms | ActiveRecord: 1.8ms | Allocations: 15979)
+
+
+Started POST "/sessions/15/45" for ::1 at 2020-03-06 12:46:22 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"LxqAaibD7wKbKcJIRzNvtC3MEZI51iqWnGz1WRKF1j9mwATAI+3UlAhKN2IYVHnKNPyIcOqfaNnWtZGmrC6hSQ==", "user_id"=>"15", "item_id"=>"45"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 1023)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:46:22 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:21
+  Rendered orders/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 3784)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 17.8ms | ActiveRecord: 0.9ms | Allocations: 9135)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:46:23 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:5
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1135)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 0.5ms | Allocations: 6552)
+
+
+Started DELETE "/sessions/15/45" for ::1 at 2020-03-06 12:46:28 -0800
+Processing by SessionsController#remove as HTML
+  Parameters: {"authenticity_token"=>"kUqZExqXQ2lZprCFxtsAVBN42spz9hUIIIHdjKP43ubYkB25H7l4/8rFRa+ZvBYqCkhDKKC/V0dqWLlzHVOpkA==", "user_id"=>"15", "item_id"=>"45"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:26:in `remove'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 853)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:46:28 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  Rendered orders/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3194)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.9ms | Allocations: 8533)
+
+
+Started POST "/sessions/15/35" for ::1 at 2020-03-06 12:46:29 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"5Bpq1PQP54YuNpTznTHGE7j9yEzuYXi0adT6A+psMKOtwO5+8SHcEL1VYdnCVtBtoc1Rrj0oOvsjDZ78VMdH1Q==", "user_id"=>"15", "item_id"=>"35"}
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms | Allocations: 849)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:46:29 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:21
+  Rendered orders/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 3784)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 1.2ms | Allocations: 9126)
+
+
+Started POST "/sessions/15/35" for ::1 at 2020-03-06 12:46:31 -0800
+Processing by SessionsController#add as HTML
+  Parameters: {"authenticity_token"=>"8aSqHtwBQnCxwlGiNVLfcsQd73yYzaaCER7tE/2Udje4fi602S955iKhpIhqNckM3S12nkuE5M1bx4nsQz8BQQ==", "user_id"=>"15", "item_id"=>"35"}
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:47:in `add'
+Redirected to http://localhost:3000/orders/new
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 849)
+
+
+Started GET "/orders/new" for ::1 at 2020-03-06 12:46:31 -0800
+Processing by OrdersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:4:in `new'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:11:in `new'
+  Rendering orders/new.html.erb within layouts/application
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/views/orders/new.html.erb:5
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" INNER JOIN "menus" ON "items"."id" = "menus"."item_id" WHERE "menus"."location_id" = ?[0m  [["location_id", 3]]
+  ↳ app/views/orders/new.html.erb:8
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/orders/new.html.erb:21
+  Rendered orders/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3791)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.9ms | Allocations: 9136)
+
+
+Started GET "/sessions/15/cart" for ::1 at 2020-03-06 12:46:32 -0800
+Processing by SessionsController#cart as HTML
+  Parameters: {"user_id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `cart'
+  Rendering sessions/cart.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/sessions/cart.html.erb:5
+  Rendered sessions/cart.html.erb within layouts/application (Duration: 24.3ms | Allocations: 872)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 0.4ms | Allocations: 5707)
+
+
+Started POST "/orders" for ::1 at 2020-03-06 12:46:34 -0800
+Processing by OrdersController#create as HTML
+  Parameters: {"authenticity_token"=>"KfzF/2ywqUhDeV+eM7sxXYAlKwvSZDvfzJlTqVU2GhhgJkFVaZ6S3tAaqrRs3CcjmRWy6QEteZCGQDdW651tbg=="}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:38:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:38:in `create'
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:38:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("user_id", "order_number", "location_id", "status", "total_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 15], ["order_number", "20200306124634080015"], ["location_id", 3], ["status", "received"], ["total_price", 38.22], ["created_at", "2020-03-06 20:46:34.528027"], ["updated_at", "2020-03-06 20:46:34.528027"]]
+  ↳ app/controllers/orders_controller.rb:38:in `create'
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:38:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:42:in `block in create'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:42:in `block in create'
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:42:in `block in create'
+  [1m[36mCart Create (0.6ms)[0m  [1m[32mINSERT INTO "carts" ("order_id", "item_id", "quantity") VALUES (?, ?, ?)[0m  [["order_id", 9], ["item_id", 35], ["quantity", 2]]
+  ↳ app/controllers/orders_controller.rb:42:in `block in create'
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:42:in `block in create'
+Redirected to http://localhost:3000/orders/20200306124634080015
+Completed 302 Found in 57ms (ActiveRecord: 10.0ms | Allocations: 20863)
+
+
+Started GET "/orders/20200306124634080015" for ::1 at 2020-03-06 12:46:34 -0800
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"20200306124634080015"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:23:in `show'
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."order_number" = ? LIMIT ?[0m  [["order_number", "20200306124634080015"], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:24:in `show'
+  Rendering orders/show.html.erb within layouts/application
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT "carts".* FROM "carts" WHERE "carts"."order_id" = ?[0m  [["order_id", 9]]
+  ↳ app/views/orders/show.html.erb:6
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/orders/show.html.erb:8
+  Rendered orders/show.html.erb within layouts/application (Duration: 9.9ms | Allocations: 2757)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.8ms | Allocations: 8256)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:46:35 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 479)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 8.9ms | ActiveRecord: 0.5ms | Allocations: 5313)
+
+
+Started DELETE "/logout/15" for ::1 at 2020-03-06 12:46:39 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+2U3G9gGsEHwQPQpTklCKO/fdEYvYk31zfr1/voC42Wyv7Ox3SiL12MjAQMRLlRW9u/tpPwrD7qHI5EBRKmUEw==", "id"=>"15"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/" for ::1 at 2020-03-06 12:46:39 -0800
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 272)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 4706)
+
+
+Started GET "/login" for ::1 at 2020-03-06 12:46:41 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1225)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms | Allocations: 5661)
+
+
+Started POST "/login" for ::1 at 2020-03-06 12:46:45 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"mcGNuIadOgizDMFvzEMYbpsf2nCsDA21fsm1QWa3fQLQGwkSg7MBniBvNEWTJA4Qgi9Dkn9FT/o0ENG+2BwKdA==", "user"=>{"user_name"=>"lfriedrichs", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "lfriedrichs"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:53:in `create'
+Redirected to http://localhost:3000/users/15
+Completed 302 Found in 306ms (ActiveRecord: 0.5ms | Allocations: 1056)
+
+
+Started GET "/users/15" for ::1 at 2020-03-06 12:46:45 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 479)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.2ms | Allocations: 5306)
+
+
+Started DELETE "/users/15" for ::1 at 2020-03-06 12:46:47 -0800
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"g1D7MnM9qbMvBxq2aJHq/fP0fR32IxcPQ31jmulpwYbKin+YdhOSJbxk75w39vyD6sTk/yVqVUAJpAdlV8K28A==", "id"=>"15"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `destroy'
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/users_controller.rb:44:in `destroy'
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:44:in `destroy'
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 3.7ms | Allocations: 2499)
+
+
+Started GET "/" for ::1 at 2020-03-06 12:46:47 -0800
+Processing by SessionsController#home as HTML
+  Rendering sessions/home.html.erb within layouts/application
+  Rendered sessions/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 4424)
+
+
+Started GET "/login" for ::1 at 2020-03-06 12:46:49 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 498)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 4804)
+
+
+Started POST "/login" for ::1 at 2020-03-06 12:46:53 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"3UnRc/r9M90b1Snc7EnBb9yPW5LzicNLZkZUzjnHR72Uk1XZ/9MIS4i23PazLtcRxb/CcCDAgQQsnzAxh2wwyw==", "user"=>{"user_name"=>"lfriedrichs", "password"=>"[FILTERED]"}, "commit"=>"login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "lfriedrichs"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:53:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms | Allocations: 967)
+
+
+Started GET "/login" for ::1 at 2020-03-06 12:46:53 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 508)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.0ms | Allocations: 4825)
+
+

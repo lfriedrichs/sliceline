@@ -32,3 +32,33 @@ body {
 p {
     text-align: center;
 }
+
+.item_info {
+    padding: 2px;
+    font-size: 16px;
+}
+
+.user_cart_page {
+    text-align: center;
+}
+
+.remove_button {
+    margin: 3px;
+}
+
+.place_order {
+    margin: 20px;
+}
+
+.item {
+}
+
+.cart_items {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.display_order_page {
+    text-align: center;
+}

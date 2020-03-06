@@ -1,4 +1,6 @@
 <div class="locations_page"><h1>Locations</h1>
+<div id="home_button"><%= button_to "account home", @user, method: :get %></div>
+
 <div class="locations">
 <% @locations.each do |location| %>
     <div class="location"><h3><%= location.name %></h3>

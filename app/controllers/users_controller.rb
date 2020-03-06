@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by_id(params[:id])
+    if params[:id]
+      @user = User.find_by_id(params[:id])
+    else 
+      @user = User.find_by_id(seesion[:user_id])
+    end
   end
 
   def edit
