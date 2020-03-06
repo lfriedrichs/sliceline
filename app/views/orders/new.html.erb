@@ -1,18 +1,19 @@
-<h1>Menu</h1>
-<h3><%= form_for @location, url:new_order_path, method: :get do |f| %>
+<h1><%= @location.name %>'s Menu</h1>
+<h3>Select another location: <%= form_for @location, url:new_order_path, method: :get do |f| %>
       <%= f.collection_select :id, Location.all, :id, :name %>
       <%= f.submit "change location", method: :get %>
-  <% end %></h3><br>
-You have selected <%= @location.name %><br>
-<% @location.items.each do |item|%>
-    <%= item.name %><br>
-    <%= item.description %><br>
-    $<%= item.price %><br>
-    <%= button_to "add to cart", "/sessions/#{session[:user_id]}/#{item.id}" %>
-<% end %>
+  <% end %></h3>
+  <div class="new_order"><div class="menu"><% @location.items.each do |item|%>
+    <div class="menu_item">
+    <div class="item_name"><%= item.name %></div>
+    <div><%= item.description %></div>
+    <div class="item_price">$<%= item.price %></div>
+    <div><%= button_to "add to cart", "/sessions/#{session[:user_id]}/#{item.id}" %></div>
+    </div>
+<% end %></div>
 
 
-<% if session[@user_id] %>
+<div><div class="cart"><% if session[@user_id] %>
     <%= "Items in your cart:" %><br>
     <% session[@user_id]["cart"].each do |item_id, quantity| %>
         <%= pluralize(quantity, Item.find_by_id(item_id).name) %><br>
@@ -21,7 +22,7 @@ You have selected <%= @location.name %><br>
     <%= button_to "checkout", "/sessions/#{@user_id}/cart", method: :get %>
 <% else %>
     <%= "Your cart is empty" %>
-<% end %>
+<% end %></div></div></div>
 
 <% if flash[:message] %>
     <%= flash[:message] %>

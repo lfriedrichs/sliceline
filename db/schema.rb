@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_180653) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "order_number"
+    t.string "order_number"
     t.integer "location_id"
     t.string "status"
     t.float "total_price"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_180653) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "address_line_1"
     t.string "address_line_2"
     t.string "city"

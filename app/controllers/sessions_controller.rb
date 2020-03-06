@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to new_order_path
       flash[:meesage] = "You do not have access to this cart"
     end
-    @user = User.find_by_id(params[:user_id])
+    @user = User.find_by_id(params[:user_id].to_i)  
   end
 
   def remove

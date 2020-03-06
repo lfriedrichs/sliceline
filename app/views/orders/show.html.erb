@@ -1,18 +1,20 @@
-<h1>Order Number: <%= @order.order_number %></h1>
+<div class="display_order_page"><h1>Order Number: <%= @order.order_number %></h1>
 
 <h3>Order Status: <%= @order.status %></h3>
-<div>
+<div class="order_items">
     <% @order.carts.each do |cart| %>
-        <% name = cart.item.name %>
-        <% quantity = cart.quantity %>
-        <% price = quantity * cart.item.price %>
-        <%= "#{pluralize(quantity, name)} $#{price.round(2)}" %><br>
+        <div class="item">
+        <div><% name = cart.item.name %></div>
+        <div><% quantity = cart.quantity %></div>
+        <div><% price = quantity * cart.item.price %></div>
+        <div><%= "#{pluralize(quantity, name)} $#{price.round(2)}" %></div>
+        </div>
     <% end %>
-    $<%= @order.total_price.round(2) %>
+    <div class="total_price">$<%= @order.total_price.round(2) %></div>
 </div>
-<% if @order.status == "received" %>
+<div><% if @order.status == "received" %>
     <%= button_to "cancel order", "/orders/#{@order.id}", method: :patch %>
-<% end %>
+<% end %></div>
 
-<%= button_to "return to order history", "/users/#{@order.user_id}/orders", method: :get %>
-<%= button_to "place a new order", "/orders/new", method: :get %>
+<div><%= button_to "return to order history", "/users/#{@order.user_id}/orders", method: :get %></div>
+<div><%= button_to "place a new order", "/orders/new", method: :get %></div></div>

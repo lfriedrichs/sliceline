@@ -1,3 +1,33 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.menu_item {
+    border: 1px solid;
+    padding: 5px;
+    margin: 5px;
+}
+
+.new_order {
+    display: flex;
+}
+
+menu {
+    width: 75%;
+}
+
+.cart {
+    position: sticky;
+    top: 0;
+    background-color: lightcyan;
+    border: 3px solid blue;
+    padding: 5px;
+    margin: 2px;
+    font-size: 20px;
+}
+.item_name {
+    font-size: 20px;
+}
+
+.menu_item {
+    background-color: #FFACA3;
+}

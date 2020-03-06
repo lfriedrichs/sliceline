@@ -1,12 +1,12 @@
-<h1><%= @user.first_name %>'s Cart</h1>
+<div class="user_cart_page"><h1><%= @user.first_name %>'s Cart</h1>
 
-<% session[@user.id]["cart"].each do |item_id, quantity| %>
-        <% item = Item.find_by_id(item_id) %>
-        <% price = quantity * item.price %>
-        <%= pluralize(quantity, item.name) %> $<%= price.round(2) %><br>
-        <%= button_to "remove item", "/sessions/#{@user.id}/#{item_id}", method: :delete %><br>
-    <% end %>
-<%= button_to "place order", orders_path %>
+<div class="cart_items"><% session[@user.id]["cart"].each do |item_id, quantity| %>
+        <div><% item = Item.find_by_id(item_id) %></div>
+        <div><% price = quantity * item.price %></div>
+        <div><%= pluralize(quantity, item.name) %> $<%= price.round(2) %></div>
+        <div><%= button_to "remove item", "/sessions/#{@user.id}/#{item_id}", method: :delete %></div>
+    <% end %></div>
+<%= button_to "place order", orders_path %></div>
 
 
 

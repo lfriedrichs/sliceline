@@ -1,18 +1,18 @@
-<h1>User Login</h1>
-<%=form_for 'user' do |f| %>
-    <%=f.label :Username %>
-    <%=f.text_field :user_name, :value => flash[:user_name] %><br>
-    <%=f.label :Password %>
-    <%=f.text_field :password %><br>
-    <%=f.submit "login" %><br>
-<% end %>
+<div class="login_page"><h1>User Login</h1>
+<div class ="login_form"><%=form_for 'user' do |f| %>
+    <div><%=f.label :Username %></div>
+    <div><%=f.text_field :user_name, :value => flash[:user_name] %></div>
+    <div><%=f.label :Password %></div>
+    <div><%=f.text_field :password %></div>
+    <div><%=f.submit "login" %></div>
+<% end %></div>
 
-Need to Create a New Account?<br>
-<%= button_to "create user", new_user_path, method: :get %><br>
+<div class="change_to_create_user">Need to Create a New Account?<br>
+<%= button_to "create user", new_user_path, method: :get %></div>
 
 <% if flash[:message] %>
     <p><%= flash[:message] %></p>
-<% end %>
+<% end %></div>
     
 
 

@@ -1,9 +1,9 @@
-<h1><%= "Welcome #{@user.first_name}!" %></h1>
-<p><%= @user.first_name %></p>
-
-<%= button_to "Start a New Order", locations_path, method: :get %>
-<%= button_to "View Orders", "/users/#{@user.id}/orders", method: :get %>
-<%= button_to "Edit User Profile", edit_user_path, method: :get %>
-<%= button_to "Delete User Account", user_path, method: :delete %>
-<%= button_to "Logout", "/logout/#{@user.id}", method: :delete %>
+<div class="user_account_page"><h1><%= "Welcome #{@user.first_name}!" %></h1>
+<div class="user_navigation">
+    <div><%= button_to "Start a New Order", locations_path, method: :get %></div>
+    <div><%= button_to "View Order History", "/users/#{@user.id}/orders", method: :get %></div>
+    <div><%= button_to "Edit User Profile", edit_user_path, method: :get %></div>
+    <div><%= button_to "Delete User Account", user_path, method: :delete %></div>
+    <div><%= button_to "Logout", "/logout/#{@user.id}", method: :delete %></div>
+</div>
 
