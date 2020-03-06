@@ -16,27 +16,21 @@ ActiveRecord::Schema.define(version: 2020_03_04_180653) do
     t.integer "order_id"
     t.integer "item_id"
     t.integer "quantity"
-    t.float "item_price"
   end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.string "description"
-    t.string "tax_type"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
-    t.string "address_line_1"
-    t.string "address_line_2"
+    t.string "address_line"
     t.string "city"
     t.string "state"
     t.string "zipcode"
-    t.float "food_tax"
-    t.float "alcohol_tax"
-    t.float "delivery_fee"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -49,8 +43,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_180653) do
     t.integer "order_number"
     t.integer "location_id"
     t.string "status"
-    t.integer "tip"
-    t.integer "total_price"
+    t.float "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_180653) do
     t.string "address_line_2"
     t.string "city"
     t.string "state"
-    t.integer "zipcode"
+    t.string "zipcode"
   end
 
 end

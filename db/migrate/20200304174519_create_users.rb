@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :address_line_2
       t.string :city
       t.string :state
-      t.integer :zipcode
+      t.string :zipcode
     end
   end
 end

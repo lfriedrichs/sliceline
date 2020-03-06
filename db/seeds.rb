@@ -7,15 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Location.destroy_all
 Item.destroy_all
+User.destroy_all
 
-Location.create(name: "ex", phone_number: "8675309", address_line_1: "address_line_1",
-address_line_2: "address_line_2", city: "city", state: "state", zipcode: "01003", 
-food_tax: 0.20, alcohol_tax: 0.20, delivery_fee: 4.99)
-
-test = Location.create(name: "name", phone_number: "8675309", address_line_1: "address_line_1",
-address_line_2: "address_line_2", city: "city", state: "state", zipcode: "01003", 
-food_tax: 0.20, alcohol_tax: 0.20, delivery_fee: 4.99)
-
-item = Item.create(name: "name", description: "this is a dish", price:5.99, tax_type:"food")
-
-test.items << item
+50.times do 
+    item = Item.create(name: Faker::Food.dish, description: Faker::Food.description, price:Faker::Number.decimal(l_digits: 2))
+end 
+5.times do 
+    location = Location.create(name: Faker::Restaurant.name, phone_number:Faker::PhoneNumber.phone_number, address_line: Faker::Address.street_name, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip_code)
+    10.times do
+        location.items << Item.all.sample
+    end
+end
+10.times do 
+    User.create(user_name:Faker::Internet.username, password:"password", first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, email:Faker::Internet.email, phone_number:Faker::PhoneNumber.phone_number, address_line_1:Faker::Address.street_address, address_line_2:Faker::Address.secondary_address, city:Faker::Address.city, state:Faker::Address.state, zipcode:Faker::Address.zip_code)
+end
