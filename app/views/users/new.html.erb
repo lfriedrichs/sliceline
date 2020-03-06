@@ -1,3 +1,11 @@
 <div class="new_user_page"><h1>Create User</h1>
-<%= render 'form' %>
-<div class="change_to_login">Already have an account?<%= button_to "login", login_path, method: :get %></div></div>
+<div class="form"><%= render 'form' %></div>
+<div class="change_to_login">Already have an account?<%= button_to "login", login_path, method: :get %></div>
+<div class="errors">
+    <% if flash[:message] %>
+        <% flash[:message].each do |message|%>
+            <div><%= "#{message[0]} #{message[1][0]}" %></div>
+        <% end %>
+    <% end %>
+</div>
+

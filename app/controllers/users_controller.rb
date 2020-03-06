@@ -13,8 +13,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    session[:user_id] = @user.id
-    redirect_to @user
+    if @user.errors
+      flash[:message] = @user.errors.messages
+      redirect_to new_user_path
+    else
+      session[:user_id] = @user.id
+      redirect_to @user
+    end
   end
 
   def update

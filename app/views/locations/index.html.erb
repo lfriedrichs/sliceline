@@ -8,7 +8,7 @@
     <div><%= location.city %>, <%= location.state %> <%= location.zipcode %></div></div>
     <div><%= form_for location, url: new_order_path, method: :get do |f| %></div>
         <%=f.hidden_field :id  %>
-        <div><%=f.submit 'select' %></div>
+        <div><%=f.submit 'select location' %></div>
     <% end %></div>
 <% end %>
 </div></div>

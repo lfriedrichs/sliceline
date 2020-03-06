@@ -1,0 +1,11 @@
+.locations {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.location {
+    border: 2px solid orangered;
+    margin: 3px;
+    padding: 5px;
+    background-color: lightcyan;
+}

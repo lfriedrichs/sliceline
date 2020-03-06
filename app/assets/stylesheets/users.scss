@@ -1,3 +1,58 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.user_navigation {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.edit_user_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user_form {
+    text-align: right;
+}
+
+#cancel {
+    text-align: center;
+    margin: 50px;
+}
+.order_history_page {
+    text-align: center;
+}
+
+.user_orders {
+    text-align: left;
+}
+
+.new_user_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order_summary {
+    background-color: white;
+    width: 33%;
+    border: 3px solid orange;
+    padding: 5px;
+    margin: 5px;
+}
+
+.total {
+    padding: 3px;
+    font-size: 18px;
+}
+
+.cart_item {
+    padding: 1px;
+}
+
+.errors {
+    color: red;
+    background-color: white;
+    margin: 5px;
+}

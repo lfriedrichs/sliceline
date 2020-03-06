@@ -1,11 +1,14 @@
 
 class OrdersController < ApplicationController
   def new
+    @user_id = session[:user_id]
     if params[:location]
-      session[:location_id] = params[:location][:id]
+      if params[:location][:id] != session[:location_id]
+        session[:location_id] = params[:location][:id]
+        session.delete @user_id 
+      end
     end
     @location = Location.find_by_id(session[:location_id])
-    @user_id = session[:user_id]
   end
 
   def update
